@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>pichex - Hex Allain Guirigay</title>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<style>
+  body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background:#0d1117;           /* GitHub dark */
+    color:#c9d1d9;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+
+  .card{
+    width: min(520px, 92vw);
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:16px;
+    padding:24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  .header{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    margin-bottom:18px;
+  }
+
+  .avatar-wrap{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:2px solid #30363d;
+    padding:6px;
+    background:#0d1117;
+    flex:0 0 auto;
+  }
+
+  /* FIX for "laying" image */
+  #mypic{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;     /* prevents stretching */
+    display:block;        /* removes inline gap */
+    cursor:pointer;
+  }
+
+  .title{
+    line-height:1.2;
+  }
+
+  .title h1{
+    margin:0;
+    font-size:22px;
+    color:#f0f6fc;
+  }
+
+  .title p{
+    margin:6px 0 0;
+    color:#8b949e;
+    font-size:14px;
+  }
+
+  .info{
+    margin-top:10px;
+    border-top:1px solid #30363d;
+    padding-top:16px;
+  }
+
+  .row{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding:10px 0;
+    border-bottom:1px dashed rgba(48,54,61,.6);
+  }
+  .row:last-child{ border-bottom:none; }
+
+  .label{
+    color:#8b949e;
+    font-weight:600;
+  }
+  .value{
+    color:#f0f6fc;
+    font-weight:500;
+    text-align:right;
+  }
+
+  .hint{
+    margin-top:14px;
+    font-size:12px;
+    color:#8b949e;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="header">
+    <div class="avatar-wrap" id="picArea">
+      <img src="pichex.jpg" id="mypic" alt="Profile Picture">
+    </div>
+
+    <div class="title">
+      <h1>Hex Allain J. Guirigay</h1>
+      <p>MSIT • 1st Year • 2nd Sem</p>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="row">
+      <div class="label">ID Number</div>
+      <div class="value">2024-02946</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Firstname</div>
+      <div class="value">Hex Allain</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Lastname</div>
+      <div class="value">Guirigay</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Course & Year</div>
+      <div class="value">MSIT 1st year 2nd sem</div>
+    </div>
+
+    <div class="row">
+      <div class="label">School Year</div>
+      <div class="value">S.Y. 2025-2026</div>
+    </div>
+
+    <div class="hint">When you hover the picture it hides, move out to show.</div>
+  </div>
+
+</div>
+
+<script>
+$(document).ready(function () {
+
+  // Using opacity instead of hide() so mouse events still work
+  $("#picArea").on("mouseenter", function () {
+    $("#mypic").stop(true).fadeTo(150, 0);
+  });
+
+  $("#picArea").on("mouseleave", function () {
+    $("#mypic").stop(true).fadeTo(150, 1);
+  });
+
+});
+</script>
+
+</body>
+</html>
